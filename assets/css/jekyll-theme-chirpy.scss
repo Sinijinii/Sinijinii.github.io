@@ -2,7 +2,7 @@
 ---
 // @use 'node_modules/bootstrap/scss/bootstrap';
 
-@use '../../node_modules/bootstrap/scss/bootstrap';
+@use 'bootstrap/bootstrap';
 
 /* Use different styles for production environment */
 {% if jekyll.environment == 'production' %}
