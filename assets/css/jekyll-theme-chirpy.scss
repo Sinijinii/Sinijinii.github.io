@@ -1,10 +1,22 @@
 ---
 ---
+// @use 'node_modules/bootstrap/scss/bootstrap';
 
-@use 'main
-{%- if jekyll.environment == 'production' -%}
-  .bundle
-{%- endif -%}
-';
+@use '../../node_modules/bootstrap/scss/bootstrap';
+
+/* Use different styles for production environment */
+{% if jekyll.environment == 'production' %}
+@use 'main.bundle';
+{% else %}
+@use 'main';
+{% endif %}
+
+/* Append your custom style below */
+
+// @use 'main
+// {%- if jekyll.environment == 'production' -%}
+//   .bundle
+// {%- endif -%}
+// ';
 
 /* append your custom style below */
