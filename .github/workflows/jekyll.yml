@@ -60,6 +60,29 @@ jobs:
       - name: Install Node.js dependencies
         run: npm install
 
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Node.js 버전을 명시적으로 설정
+
+      - name: Install Node.js dependencies
+        run: npm install # package.json에 따라 의존성 설치
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --baseurl ""
+        env:
+          JEKYLL_ENV: production
+
   # Deployment job
   deploy:
     environment:
